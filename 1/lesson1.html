@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homework1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* #bg:target {    
+            width: 1440px;
+            height: 1440px;
+            border-radius: 10px;
+            box-shadow: 2px 5px 10px 1px rgb(0, 0, 0,0.5);
+            margin: 60px auto;
+            padding: 10px 20px;
+            background-image: linear-gradient(to right , #25d0eebc , #808cf8c3);
+        }  */
+
+        .bg:hover {
+            /* background-color: #f0f0f0; */
+            width: 1440px;
+            height: 1440px;
+            border-radius: 10px;
+            /* box-shadow: 2px 5px 10px 1px rgb(0, 0, 0,0.5); */
+            background-image: linear-gradient(to left , #BEDBFE , #A6F3FC);
+            margin: 60px auto;
+            padding: 10px 20px;
+            /* display: none; */
+        }
+
+        .bg {
+            background-color: #f0f0f0;
+            width: 1440px;
+            height: 1440px;
+            border-radius: 10px;
+            /* box-shadow: 2px 5px 10px 1px rgb(0, 0, 0,0.5); */
+            background-image: linear-gradient(to left , #BEDBFE , #A6F3FC);
+            /* background-image: linear-gradient(to left , #F59B11 , #ED4B95); */
+            background-image: linear-gradient(to right , #e6effa , #c7cfd8);
+            margin: 60px auto;
+            padding: 10px 20px;
+        }
+
+        .t {
+            margin-bottom: 40px;
+        }
+
+        .box {
+            width: 1400px;
+            height: 100px;
+            background-color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0.5px 1px 10px 1px rgb(186, 185, 185);
+            margin-bottom: 20px;
+        }
+
+        .box:hover {
+            width: 1400px;
+            height: 100px;
+            background-color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0.5px 1px 10px 1px rgb(186, 185, 185);
+            margin-bottom: 20px;
+            background-image: linear-gradient(to right , #25d0eebc , #808cf8c3);
+        }
+
+        .button {
+            display: none;
+        }
+
+        .box:hover .button {
+            display: block;
+            float: right;
+            width: 150px;
+            height: 33px;
+            background-color: #fff;
+            color: #ffffff;
+            border-radius: 5px;
+            /* box-shadow: 0.5px 1px 10px 1px rgb(0, 0, 0); */
+            margin-right: 50px;
+            /* margin-left: 1200px; */
+            font-size: 20px;
+            letter-spacing: 1.5px;
+            line-height: 30px;
+            text-align: center;
+            background-image: linear-gradient(to right bottom , #BEDBFE , #A5F3FC);
+        }
+
+        .box:hover .button:hover {
+             display: block;
+            float: right;
+            width: 150px;
+            height: 33px;
+            background-color: #fff;
+            color: #ffffff;
+            border-radius: 5px;
+            /* box-shadow: 0.5px 1px 10px 1px rgb(0, 0, 0); */
+            margin-right: 50px;
+            /* margin-left: 1200px; */
+            font-size: 20px;
+            letter-spacing: 1.5px;
+            line-height: 30px;
+            text-align: center;
+            background-image: linear-gradient(to right bottom , #34D39B , #22D3ED);
+        }
+
+        a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 500;
+            letter-spacing: 2px;
+        }
+
+        .prize {
+            color: #007bff;
+        }
+
+        .describe {
+            font-weight: 300;
+            display: inline-block;
+        }
+
+        .line {
+            background-color: #007bff;
+            margin: auto;
+            width: 1400px;
+            height: 1.5px;
+            margin-bottom: 30px;
+            margin-top: 20px;
+        }
+
+        .bgg {
+            background-image: url(./full-bloom.webp);
+            background-attachment: fixed;
+            opacity: 0.7;
+        }
+        
+        
+    </style>
+</head>
+<body class="bgg">
+    <div class="bg" id="bg">
+        <h1 class="t">前菜</h1>
+        <div class="box">
+            <h3>沙拉</h3>
+            <div class="describe">新鲜的蔬菜和橄榄油，简单而美味。</div>
+            <h4 class="prize">￥28</h4>
+            
+        </div>
+        <div class="box">
+            <h3>汤</h3>
+            <div class="describe">经典的番茄汤，口感浓郁。</div>
+            <h4 class="prize">￥18</h4>
+        </div>
+        <div class="line"></div>
+        <h1 class="t">主菜</h1>
+        <div class="box">
+            <h3>牛排</h3>
+            <div class="describe">外焦里嫩的烤牛排，搭配特质酱汁。</div>
+            <h4 class="prize">￥88</h4>
+        </div>
+        <div class="box">
+            <h3>海鲜意面</h3>
+            <div class="describe">新鲜海鲜与意面混合，口感丰富。</div>
+            <h4 class="prize">￥98</h4>
+        </div>
+        <div class="line"></div>
+        <h1 class="t">甜点</h1>
+        <div class="box">
+            <h3>巧克力蛋糕</h3>
+            <div class="describe">香浓的巧克力蛋糕，配上香草冰淇淋。</div>
+            <h4 class="prize">￥38</h4>
+        </div>
+        <div class="box">
+            <h3>水果沙拉</h3>
+            <div class="describe">新鲜水果，清爽健康。</div>
+            <h4 class="prize">￥22</h4>
+        </div>
+        <div class="line"></div>
+        <h1 class="t">神秘入</h1>
+        <div class="box">
+            <h3>senyu丝绒咖啡</h3>
+            <div class="describe">由神秘人研制打磨而成，缓慢，苦涩，简单，独特。</div>
+            <span class="button"><a href="https://www.bilibili.com/video/BV1cR4y1H7om/?spm_id_from=333.337.search-card.all.click&vd_source=19d85680c931d841df29a412245aae9c" target="_blank">Click</a></span>
+            <h4 class="prize">￥@！#！￥</h4>
+        </div>
+        <div class="box">
+            <h3>？？？</h3>
+            <div class="describe">？？？？？？？（超级神秘人）</div>
+            <label><span class="button"><a href="./youbao.png" target="_blank">Click</a></span></label>
+            <h4 class="prize">￥？？</h4>
+        </div>
+    </div>
+</body>
+</html>
