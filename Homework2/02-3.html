@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @keyframes rainbow {
+            0%{background-color: red;transform: scale(1);}
+            14%{background-color: orange;transform: scale(1.5);}
+            28%{background-color: yellow;transform: scale(1);}
+            42%{background-color: green;transform: scale(1.5);}
+            66%{background-color: blue;transform: scale(1);}
+            80%{background-color: cyan;transform: scale(1.5);}
+            100%{background-color: purple;transform: scale(1);}
+        }
+        #rainbow {
+            animation: rainbow 10s  linear    ;
+            width: 220px;
+            height: 150px;
+            margin: 400px auto;
+            font-weight: 900;
+            border-radius: 20px;
+            box-shadow: black;
+            text-align: center;
+            line-height: 150px;
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+    <div id="rainbow">
+        rainbow box
+    </div>
+</body>
+</html>

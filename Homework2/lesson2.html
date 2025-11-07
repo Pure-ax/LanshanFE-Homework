@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>homework2</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .bg {
+            display: flex;
+            vertical-align: middle;
+            background-attachment: fixed;
+            width: 100%;
+            height: 140%;
+            position: absolute;
+            background-size: 100% auto;
+            background-attachment: fixed;
+            background-image: url(./图片/pexels-hngstrm-1939485.jpg);
+            /* background-image: url(C:\Users\q8058\Desktop\素材夹\pexels-steve-1269968.jpg); */
+            z-index: -3;
+        }
+        /* .img{
+            width: 100%;
+            height: 140%;
+            position: absolute;
+            background-size: 100% auto;
+            background-attachment: fixed;
+            background-image: url(./图片/pexels-hngstrm-1939485.jpg);
+            z-index: -3;
+        } */
+        .bgg {
+            position: absolute;
+            top: 100px;
+            width: 100%;
+            height: 100%;
+        }
+
+        .box{
+            margin: auto;
+            width: 100%;
+            height: 100%;
+            /* background-image: url(./图片/); */
+            background-attachment: fixed;
+            background-position: 100% auto;
+            background-size: auto;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            align-content: space-evenly;
+            flex-wrap: wrap;
+        }
+        /* .blocked {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 360px;
+            height: 280px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+        } */
+        .block {
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 360px;
+            height: 280px;
+            background-color: rgb(255, 255, 255);
+            border-radius: 10px;
+        }
+        .content {
+            width: 360px;
+            height: 220px;
+            background-color: gray;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            position: relative;
+        }
+        .content img:hover {
+            /* width: 540px;
+            height: 330px; */
+            transform: scale(1.5);
+            /* transition: all 2s ease; */
+        }
+        .content:hover .time {
+            display: none;
+        }
+        .content img {
+            width: 360px;
+            height: 220px;
+            transition: all 2s ease;
+        }
+        .content img:active .content img {
+            transform: translateY(20px);
+            transition: all 2s;
+        }
+        .time {
+            width: 36px;
+            height: 15px;
+            background-color: #000000ae;
+            position: absolute;
+            right: 6px;
+            bottom: 6px;
+            border-radius: 5px;
+            color: white;
+            font-size: 7px;
+            font-weight: 600;
+            text-align: center;
+            line-height: 15px;
+            display: inline-block;
+        }
+        .content::after {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 100%;
+            height: 3px;
+            width: 0;
+            border-radius: 2px;
+            background-image: linear-gradient(to left,#FB7084,#EF4545);
+            transition: all 0.5s ease;
+        }
+        .content:hover::after {
+            content: '';
+            position: absolute;
+            bottom: 0px;
+            left: 0;
+            width: 100%;
+            border-radius: 2px;
+            background-image: linear-gradient(to left,#FB7084,#EF4545);
+        }
+        .content img:active {
+            transition: all 0.8s;
+            transform: scale(1);
+            z-index: 3;
+        }
+        .head {
+            width: 22px;
+            height: 22px;
+            background-color: rgb(0, 0, 0);
+            /* margin-top: 7px; */
+            /* margin-left: 10px; */
+            cursor: pointer;
+            border-radius: 50%;
+            display: inline-block;
+            /* vertical-align: middle; */
+            position: absolute;
+            overflow: hidden;
+            top: 7px;
+        }
+        .head img {
+            width: 22px;
+            height: 22px;
+            transition: transform 0.3s ease;
+        }
+        .head img:hover {
+            transform: rotate(360deg);
+        }
+        .text {
+            margin-left: 6px;
+            font-weight: 600;
+            /* line-height: 30px; */
+            font-size: 9px;
+            /* display: inline-block; */
+            /* cursor: pointer; */
+            line-height: 14px;
+        }
+        .text1 {
+            margin-left: 6px;
+            font-weight: 600;
+            /* line-height: 30px; */
+            font-size: 9px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .describe {
+            color: #8B8888;
+            margin-left: 6px;
+            font-weight: 600;
+            font-size: 9px;
+            display: inline-block;
+            cursor: pointer;
+        }
+        .text:hover,.text1:hover,.describe:hover {
+            text-decoration: underline;
+        }
+        .data {
+            color: #8B8888;
+            margin-left: 6px;
+            font-weight: 600;
+            font-size: 9px;
+            display: inline-block;
+            /* cursor: pointer; */
+        }
+        .block1 {
+            width: 177px;
+            height: 20px;
+            border-radius: 12.5px 12.5px;
+            /* border: 1px solid rgba(132, 128, 128, 0.502); */
+            position: absolute;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            text-align: center;
+            line-height: 18px;
+            font-weight: 600;
+            color: #2A76DB;
+            font-size: 9px;
+            display: none;
+        }
+        .block:hover .block1{
+            display: inline-block;
+            cursor: pointer;
+        }
+        .block1:hover {
+            border: 1px solid rgba(132, 128, 128, 0.502);
+        }
+        .block2 {
+            width: 177px;
+            height: 20px;
+            border-radius: 12.5px 12.5px;
+            /* border: 1px solid rgba(132, 128, 128, 0.502); */
+            position: absolute;
+            right: 2px;
+            bottom: 2px;
+            background-color: #DEF1FF;
+            text-align: center;
+            line-height: 18px;
+            font-weight: 600;
+            color: #2A76DB;
+            font-size: 9px;
+            display: none;
+        }
+        .block:hover .block2{
+            display: inline-block;
+            cursor: pointer;
+        }
+        .block2:hover {
+            border: 1px solid rgba(132, 128, 128, 0.502);
+        }
+        .box1 {
+            width: 360px;
+            height: 60px;
+            border-radius: 10px;
+            position: relative;
+        }
+        .box1 ul {
+            /* margin-left: 25px;
+            margin-top: 15px; */
+            position: absolute;
+            left: 18px;
+            top: 6.6px;
+        }
+        .share1 {
+            border-radius: 50%;
+            background-color: #3d3d3f;
+            display: inline-block;
+            width: 3px;
+            height: 3px;
+            position: absolute;
+            right: 4px;
+            top: 12px;
+            cursor: pointer;
+        }
+        .share2 {
+            border-radius: 50%;
+            background-color: #3d3d3f;
+            display: inline-block;
+            width: 3px;
+            height: 3px;
+            position: absolute;
+            right: 4px;
+            top: 16px;
+            cursor: pointer;
+        }
+        .share3 {
+            border-radius: 50%;
+            background-color: #3d3d3f;
+            display: inline-block;
+            width: 3px;
+            height: 3px;
+            position: absolute;
+            right: 4px;
+            top: 20px;
+            cursor: pointer;
+        }
+        .share1:hover,.share2:hover,.share3:hover {
+            width: 5px;
+            height: 5px;
+            transition: all 0.5s;
+        }
+        .over {
+            width: 1600px;
+            height: 60px;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translate(-50%);
+            /* background-color: #fff; */
+        }
+        .over1 {
+            width: 1600px;
+            height: 60px;
+            position: absolute;
+            top: 65px;
+            left: 50%;
+            transform: translate(-50%);
+            /* background-color: #fff; */
+        }
+        .over1 .text2 {
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+            line-height: 60px;
+            text-indent: 2px;
+            color:gray;
+        }
+        .head1 {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0);
+            /* margin-top: 7px; */
+            /* margin-left: 10px; */
+            cursor: pointer;
+            border-radius: 50%;
+            display: inline-block;
+            /* vertical-align: middle; */
+            position: absolute;
+            overflow: hidden;
+            top: 30px;
+            left: 50%;
+            transform: translate(-50%);
+        }
+        .over img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.5s ease;
+        }
+        /* .over img:hover {
+            transform: scale(1);
+        } */
+        .line {
+            position: absolute;
+            top:50px;
+            left: 50%;
+            transform: translate(-50%);
+            height: 2px;
+            width: 1200px;
+            /* background-color: black; */
+            background-image: linear-gradient(to left,#d9dbdeb3, #35383c,#CAD4E0);
+            border-radius: 50%;
+            z-index: -1;
+            /* box-shadow:  1px  black; */
+        }
+        .head1:hover {
+            transform:translate(-50%) translateY(-10px) scale(1.5);
+        }
+    </style>
+</head>
+<body class="bg">
+    <div class="over">
+        <img src="./图片/1770776530.jpg" alt="" class="head1">
+        <div class="line"></div>
+    </div>
+    <div class="over1">
+            <div class="text2">Made by Pure_ax</div>
+        </div>
+    <div class="bgg">
+    <!-- <img src="./图片/pexels-hngstrm-1939485.jpg" alt="" class="img"> -->
+    <!-- <div class="img"></div> -->
+    <!-- <div class="over">
+        <img src="./图片/1770776530.jpg" alt="" class="head1">
+        <div class="line"></div>
+    </div> -->
+    <div class="box">
+        <div class="block">
+            <div class="content">
+                <img src="./图片/pexels-makayla-asuncion-2155237133-33894780.jpg" alt="">
+                <span class="time">00:12:54</span>
+            </div>
+            <div class="box1">
+                <span class="head"><a href="#"><img src="C:\Users\q8058\Desktop\素材夹\youbao.png" alt=""></a></span>
+                <ul class="text">
+                    <li class="text"><a href="#">神秘人物---邮宝！！！登场！</a></li>
+                    <li class="text1">Pure_ax</li>
+                    <li class="describe">-神秘邮宝系列</li>
+                    <br>
+                    <li class="data">154K views - 1 s ago</li>
+                </ul>
+                <span class="block1">
+                    Watch
+                </span>
+                <span class="block2">
+                    Learn more
+                </span>
+                <span class="share1"></span>
+                <span class="share2"></span>
+                <span class="share3"></span>
+            </div>
+        </div>
+        <div class="block">
+            <div class="content">
+                <img src="https://images.pexels.com/photos/34456224/pexels-photo-34456224.jpeg" alt="">
+                <span class="time">00:12:54</span>
+            </div>
+            <div class="box1">
+                <span class="head"><a href="#"><img src="C:\Users\q8058\Desktop\素材夹\youbao.png" alt=""></a></span>
+                <ul class="text">
+                    <li class="text"><a href="#">神秘人物---邮宝！！！登场！</a></li>
+                    <li class="text1">Pure_ax</li>
+                    <li class="describe">-神秘邮宝系列</li>
+                    <br>
+                    <li class="data">154K views - 2 s ago</li>
+                </ul>
+                <span class="block1">
+                    Watch
+                </span>
+                <span class="block2">
+                    Learn more
+                </span>
+                <span class="share1"></span>
+                <span class="share2"></span>
+                <span class="share3"></span>
+            </div>
+        </div>
+        <div class="block">
+            <div class="content">
+                <img src="./图片/pexels-gede-bayu-pratiwiharja-432238721-34587762.jpg" alt="">
+                <span class="time">00:12:54</span>
+            </div>
+            <div class="box1">
+                <span class="head"><a href="#"><img src="C:\Users\q8058\Desktop\素材夹\youbao.png" alt=""></a></span>
+                <ul class="text">
+                    <li class="text"><a href="#">神秘人物---邮宝！！！登场！</a></li>
+                    <li class="text1">Pure_ax</li>
+                    <li class="describe">-神秘邮宝系列</li>
+                    <br>
+                    <li class="data">154K views - 3 s ago</li>
+                </ul>
+                <span class="block1">
+                    Watch
+                </span>
+                <span class="block2">
+                    Learn more
+                </span>
+                <span class="share1"></span>
+                <span class="share2"></span>
+                <span class="share3"></span>
+            </div>
+        </div>
+        <div class="block">
+            <div class="content">
+                <img src="https://images.pexels.com/photos/22064291/pexels-photo-22064291.png" alt="">
+                <span class="time">00:12:54</span>
+            </div>
+            <div class="box1">
+                <span class="head"><a href="#"><img src="C:\Users\q8058\Desktop\素材夹\youbao.png" alt=""></a></span>
+                <ul class="text">
+                    <li class="text"><a href="#">神秘人物---邮宝！！！登场！</a></li>
+                    <li class="text1">Pure_ax</li>
+                    <li class="describe">-神秘邮宝系列</li>
+                    <br>
+                    <li class="data">154K views - 4 s ago</li>
+                </ul>
+                <span class="block1">
+                    Watch
+                </span>
+                <span class="block2">
+                    Learn more
+                </span>
+                <span class="share1"></span>
+                <span class="share2"></span>
+                <span class="share3"></span>
+            </div>
+        </div>
+        <div class="block">
+            <div class="content">
+                <img src="https://images.pexels.com/photos/34553038/pexels-photo-34553038.jpeg" alt="">
+                <span class="time">00:12:54</span>
+            </div>
+            <div class="box1">
+                <span class="head"><a href="#"><img src="C:\Users\q8058\Desktop\素材夹\youbao.png" alt=""></a></span>
+                <ul class="text">
+                    <li class="text"><a href="#">神秘人物---邮宝！！！登场！</a></li>
+                    <li class="text1">Pure_ax</li>
+                    <li class="describe">-神秘邮宝系列</li>
+                    <br>
+                    <li class="data">154K views - 5 s ago</li>
+                </ul>
+                <span class="block1">
+                    Watch
+                </span>
+                <span class="block2">
+                    Learn more
+                </span>
+                <span class="share1"></span>
+                <span class="share2"></span>
+                <span class="share3"></span>
+            </div>
+        </div>
+        <div class="block">
+            <div class="content">
+                <img src="https://images.pexels.com/photos/34609640/pexels-photo-34609640.jpeg" alt="">
+                <span class="time">00:12:54</span>
+            </div>
+            <div class="box1">
+                <span class="head"><a href="#"><img src="C:\Users\q8058\Desktop\素材夹\youbao.png" alt=""></a></span>
+                <ul class="text">
+                    <li class="text"><a href="#">神秘人物---邮宝！！！登场！</a></li>
+                    <li class="text1">Pure_ax</li>
+                    <li class="describe">-神秘邮宝系列</li>
+                    <br>
+                    <li class="data">154K views - 6 s ago</li>
+                </ul>
+                <span class="block1">
+                    Watch
+                </span>
+                <span class="block2">
+                    Learn more
+                </span>
+                <span class="share1"></span>
+                <span class="share2"></span>
+                <span class="share3"></span>
+            </div>
+        </div>
+        <div class="block">
+            <div class="content">
+                <img src="https://images.pexels.com/photos/34606112/pexels-photo-34606112.jpeg" alt="">
+                <span class="time">00:12:54</span>
+            </div>
+            <div class="box1">
+                <span class="head"><a href="#"><img src="C:\Users\q8058\Desktop\素材夹\youbao.png" alt=""></a></span>
+                <ul class="text">
+                    <li class="text"><a href="#">神秘人物---邮宝！！！登场！</a></li>
+                    <li class="text1">Pure_ax</li>
+                    <li class="describe">-神秘邮宝系列</li>
+                    <br>
+                    <li class="data">154K views - 7 s ago</li>
+                </ul>
+                <span class="block1">
+                    Watch
+                </span>
+                <span class="block2">
+                    Learn more
+                </span>
+                <span class="share1"></span>
+                <span class="share2"></span>
+                <span class="share3"></span>
+            </div>
+        </div>
+        <div class="block">
+            <div class="content">
+                <img src="https://images.pexels.com/photos/34601586/pexels-photo-34601586.jpeg" alt="">
+                <span class="time">00:12:54</span>
+            </div>
+            <div class="box1">
+                <span class="head"><a href="#"><img src="C:\Users\q8058\Desktop\素材夹\youbao.png" alt=""></a></span>
+                <ul class="text">
+                    <li class="text"><a href="#">神秘人物---邮宝！！！登场！</a></li>
+                    <li class="text1">Pure_ax</li>
+                    <li class="describe">-神秘邮宝系列</li>
+                    <br>
+                    <li class="data">154K views - 8 s ago</li>
+                </ul>
+                <span class="block1">
+                    Watch
+                </span>
+                <span class="block2">
+                    Learn more
+                </span>
+                <span class="share1"></span>
+                <span class="share2"></span>
+                <span class="share3"></span>
+            </div>
+        </div>
+        <div class="block">
+            <div class="content">
+                <img src="https://images.pexels.com/photos/34573942/pexels-photo-34573942.jpeg" alt="">
+                <span class="time">00:12:54</span>
+            </div>
+            <div class="box1">
+                <span class="head"><a href="#"><img src="C:\Users\q8058\Desktop\素材夹\youbao.png" alt=""></a></span>
+                <ul class="text">
+                    <li class="text"><a href="#">神秘人物---邮宝！！！登场！</a></li>
+                    <li class="text1">Pure_ax</li>
+                    <li class="describe">-神秘邮宝系列</li>
+                    <br>
+                    <li class="data">154K views - 9 s ago</li>
+                </ul>
+                <span class="block1">
+                    Watch
+                </span>
+                <span class="block2">
+                    Learn more
+                </span>
+                <span class="share1"></span>
+                <span class="share2"></span>
+                <span class="share3"></span>
+            </div>
+        </div>
+        <div class="block">
+            <div class="content">
+                <img src="https://images.pexels.com/photos/34590177/pexels-photo-34590177.jpeg" alt="">
+                <span class="time">00:12:54</span>
+            </div>
+            <div class="box1">
+                <span class="head"><a href="#"><img src="C:\Users\q8058\Desktop\素材夹\youbao.png" alt=""></a></span>
+                <ul class="text">
+                    <li class="text"><a href="#">神秘人物---邮宝！！！登场！</a></li>
+                    <li class="text1">Pure_ax</li>
+                    <li class="describe">-神秘邮宝系列</li>
+                    <br>
+                    <li class="data">154K views - 10 s ago</li>
+                </ul>
+                <span class="block1">
+                    Watch
+                </span>
+                <span class="block2">
+                    Learn more
+                </span>
+                <span class="share1"></span>
+                <span class="share2"></span>
+                <span class="share3"></span>
+            </div>
+        </div>
+        <div class="block">
+            <div class="content">
+                <img src="https://images.pexels.com/photos/34539169/pexels-photo-34539169.jpeg" alt="">
+                <span class="time">00:12:54</span>
+            </div>
+            <div class="box1">
+                <span class="head"><a href="#"><img src="C:\Users\q8058\Desktop\素材夹\youbao.png" alt=""></a></span>
+                <ul class="text">
+                    <li class="text"><a href="#">神秘人物---邮宝！！！登场！</a></li>
+                    <li class="text1">Pure_ax</li>
+                    <li class="describe">-神秘邮宝系列</li>
+                    <br>
+                    <li class="data">154K views - 11 s ago</li>
+                </ul>
+                <span class="block1">
+                    Watch
+                </span>
+                <span class="block2">
+                    Learn more
+                </span>
+                <span class="share1"></span>
+                <span class="share2"></span>
+                <span class="share3"></span>
+            </div>
+        </div>
+        <div class="block">
+            <div class="content">
+                <img src="https://images.pexels.com/photos/89909/pexels-photo-89909.jpeg" alt="">
+                <span class="time">00:12:54</span>
+            </div>
+            <div class="box1">
+                <span class="head"><a href="#"><img src="C:\Users\q8058\Desktop\素材夹\youbao.png" alt=""></a></span>
+                <ul class="text">
+                    <li class="text"><a href="#">神秘人物---邮宝！！！登场！</a></li>
+                    <li class="text1">Pure_ax</li>
+                    <li class="describe">-神秘邮宝系列</li>
+                    <br>
+                    <li class="data">154K views - 12 s ago</li>
+                </ul>
+                <span class="block1">
+                    Watch
+                </span>
+                <span class="block2">
+                    Learn more
+                </span>
+                <span class="share1"></span>
+                <span class="share2"></span>
+                <span class="share3"></span>
+            </div>
+        </div>
+        <!-- <div class="over1">
+            <div class="text2">Made by Pure_ax</div>
+        </div> -->
+    </div>
+    </div>
+    <!-- <div class="over1">
+            <div class="text2">Made by Pure_ax</div>
+        </div> -->
+</body>
+</html>
