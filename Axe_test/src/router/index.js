@@ -22,9 +22,4 @@ const router = createRouter({
   routes
 })
 
-// router.beforeEach((to, from, next) => {
-//   document.title = to.meta.title || '画布编辑器'
-//   next()
-// })
-
 export default router
