@@ -15,7 +15,7 @@ Axe是仿 Figma 和 Canva可画 的一个画布绘图网页小项目。
 
 ## 技术栈
 
-- vue3 + pinia + vue router + canvas + Element Plus + node.js(虽然已经快忘完了，这个项目也没用到..)
+- vue3 + pinia + vue router + canvas + Element Plus
 
 ## 安装依赖
 
